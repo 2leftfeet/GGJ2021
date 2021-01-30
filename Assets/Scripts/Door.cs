@@ -35,6 +35,11 @@ public class Door : MonoBehaviour, IInteractable
         hovering = false;
     }
 
+    private void Start()
+    {
+        text.gameObject.SetActive(false);
+    }
+
     public void Hover()
     {
         hovering = true;
