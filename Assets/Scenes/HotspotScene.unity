@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 3
-  playerPosition: {fileID: 0}
-  minimumHearValue: 0
+  playerPosition: {fileID: 11400000, guid: 0744286e686bac940aea74052e65fe85, type: 2}
+  minimumHearValue: 50
 --- !u!4 &281200096
 Transform:
   m_ObjectHideFlags: 0
