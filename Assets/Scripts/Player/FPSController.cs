@@ -21,6 +21,7 @@ public class FPSController : MonoBehaviour {
 	public LayerMask groundedMask;
 
 	bool cursorVisible;
+	bool cameraMovementActive = true;
 
 	// Use this for initialization
 	void Start () {
@@ -31,11 +32,14 @@ public class FPSController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// rotation
-		transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * mouseSensitivityX);
-		verticalLookRotation += Input.GetAxis ("Mouse Y") * mouseSensitivityY;
-		verticalLookRotation = Mathf.Clamp (verticalLookRotation, -60, 60);
-		cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
+		if(cameraMovementActive)
+		{
+			// rotation
+			transform.Rotate (Vector3.up * Input.GetAxis ("Mouse X") * mouseSensitivityX);
+			verticalLookRotation += Input.GetAxis ("Mouse Y") * mouseSensitivityY;
+			verticalLookRotation = Mathf.Clamp (verticalLookRotation, -60, 60);
+			cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
+		}
 
 		// movement
 		Vector3 moveDir = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical")).normalized;
@@ -53,13 +57,13 @@ public class FPSController : MonoBehaviour {
 		}
 
 		/* Lock/unlock mouse on click */
-		if (Input.GetMouseButtonUp (0)) {
+		/*if (Input.GetMouseButtonUp (0)) {
 			if (!cursorVisible) {
 				UnlockMouse ();
 			} else {
 				LockMouse ();
 			}
-		}
+		}*/
 	}
 
 	void FixedUpdate() {
@@ -76,5 +80,13 @@ public class FPSController : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		cursorVisible = false;
+	}
+
+	public void SetCameraMovement(bool value){
+		cameraMovementActive = value;
+		if(value)
+			LockMouse();
+		else
+			UnlockMouse();
 	}
 }
