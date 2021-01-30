@@ -27,7 +27,10 @@ public class FPSController : MonoBehaviour
 	bool cameraMovementActive = true;
 
 	public float interactionDistance;
-	
+
+	private Ray interactionRay;
+
+	private RaycastHit interactionRayHit;
 	// Use this for initialization
 	void Start () {
 		cameraT = Camera.main.transform;
@@ -54,8 +57,6 @@ public class FPSController : MonoBehaviour
 
 		Ray ray = new Ray (transform.position, -transform.up);
 		RaycastHit hit;
-		
-	
 
 		if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask)) {
 			grounded = true;
@@ -63,8 +64,6 @@ public class FPSController : MonoBehaviour
 		else {
 			grounded = false;
 		}
-
-		
 		
 		playerPosition.Value = transform.position;
 		/* Lock/unlock mouse on click */
@@ -79,31 +78,34 @@ public class FPSController : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		Ray interactionRay = new Ray (transform.position, transform.forward);
-		RaycastHit hit;
-		
-		if(Physics.Raycast(interactionRay, out hit, interactionDistance ))
+		interactionRay = new Ray (new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Camera.main.transform.forward);
+
+		if(Physics.Raycast(interactionRay, out interactionRayHit, interactionDistance ))
 		{
-			if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+			if (interactionRayHit.collider.gameObject.GetComponent<IInteractable>() != null)
 			{
-				var interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+				var interactable = interactionRayHit.collider.gameObject.GetComponent<IInteractable>();
 				interactable.Hover();
 			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			if(Physics.Raycast(interactionRay, out hit, interactionDistance ))
+			if(Physics.Raycast(interactionRay, out interactionRayHit, interactionDistance ))
 			{
-				if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+				if (interactionRayHit.collider.gameObject.GetComponent<IInteractable>() != null)
 				{
-					var interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+					var interactable = interactionRayHit.collider.gameObject.GetComponent<IInteractable>();
 					interactable.Interact(transform);
 				} //Check other interactables here
 			}
 		}
 	}
-
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z + 1f), interactionRay.direction * 1000f);
+	}
 	void FixedUpdate() {
 		rigidbodyR.velocity = transform.rotation * moveAmount;
 	}
