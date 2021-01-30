@@ -20,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedVector3.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EventTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFly.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -31,11 +32,15 @@
       <option value="$PROJECT_DIR$/Assets/PieceRandomiser.cs" />
       <option value="$PROJECT_DIR$/Assets/HotSpotSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/IInteractable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/FPSController.cs" />
       <option value="$PROJECT_DIR$/Assets/Door.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFly.cs" />
       <option value="$PROJECT_DIR$/Assets/InteractableObject.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedBool.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFly.cs" />
+      <option value="$PROJECT_DIR$/Assets/EventTest.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameStateGate.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Door.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/FPSController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/InteractableObject.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nmq1M2WJAIrpsHefuJRV1hHIh1" />

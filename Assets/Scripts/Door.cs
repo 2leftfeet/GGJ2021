@@ -10,6 +10,8 @@ public class Door : MonoBehaviour, IInteractable
     public SharedBool OnInteractEvent;
     public Transform positionToMove;
 
+    [SerializeField] private SharedBool boolToCheck;
+    
     public TMP_Text text;
     public bool hovering = false;
 
@@ -18,6 +20,7 @@ public class Door : MonoBehaviour, IInteractable
     private bool opening;
     private void Update()
     {
+        if (boolToCheck?.Value == false) return;
         
         switch (text.gameObject.activeInHierarchy)
         {
@@ -38,7 +41,7 @@ public class Door : MonoBehaviour, IInteractable
     }
     public void Interact(Transform interactee)
     {
-        if (opening) return;
+        if (opening || boolToCheck?.Value == false) return;
         StartCoroutine(Fade());
         this.interactee = interactee;
     }
@@ -51,7 +54,7 @@ public class Door : MonoBehaviour, IInteractable
         var obj = new GameObject();
         var canvas = obj.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
-        canvas.worldCamera = Camera.main;
+        //canvas.worldCamera = Camera.main;
         canvas.sortingOrder = 50;
         var image = obj.AddComponent<Image>();
         image.color = new Color(0f, 0f, 0f, 0f);

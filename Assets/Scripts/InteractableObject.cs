@@ -7,39 +7,44 @@ public class InteractableObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private SharedBool pickUpEvent;
     private bool hovering = false;
-    [SerializeField] private MeshRenderer renderer;
+    [SerializeField] private MeshRenderer[] renderers;
     [SerializeField] private Color startingColor;
     private float pingPongValue;
     [SerializeField] private bool shouldDestroyOnPickup = false;
+    [SerializeField] private SharedBool boolToCheck;
     public void Interact(Transform interactee)
     {
-        if(pickUpEvent != null) pickUpEvent.Value = true;
-        if (shouldDestroyOnPickup) Destroy(this);
+        if (boolToCheck?.Value == false) return;
+        if (pickUpEvent != null) pickUpEvent.Value = true;
+        if (shouldDestroyOnPickup) Destroy(gameObject);
     }
     private void Update()
     {
-        var color = renderer.material.color;
-        if (hovering)
+        if (boolToCheck?.Value == false) return;
+
+        foreach (var renderer in renderers)
         {
-            color = new Color(startingColor.r + Mathf.PingPong(Time.time, 0.5f), startingColor.g +
-                Mathf.PingPong(Time.time, 0.5f), 
-                startingColor.b + Mathf.PingPong(Time.time, 0.5f)) ;
-            Debug.Log("Was hovering");
-        }
-        else
-        {
-            color = startingColor;
+            var color = renderer.material.color;
+            if (hovering)
+            {
+                color = new Color(startingColor.r + Mathf.PingPong(Time.time, 0.5f), startingColor.g +
+                    Mathf.PingPong(Time.time, 0.5f), 
+                    startingColor.b + Mathf.PingPong(Time.time, 0.5f)) ;
+                Debug.Log("Was hovering");
+            }
+            else
+            {
+                color = startingColor;
+            }
+            renderer.material.color = color;
         }
 
-        renderer.material.color = color;
-        
         hovering = false;
     }
 
     private void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
-        startingColor = renderer.material.color;
+        startingColor = renderers[0].material.color;
     }
     public void Hover()
     {

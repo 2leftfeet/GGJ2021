@@ -245,13 +245,18 @@
             </e>
           </e>
         </e>
+        <e p="EventTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CameraFly.cs" t="Include" />
           <e p="Door.cs" t="Include" />
           <e p="Enemy" t="Include">
+            <e p="Boobling.cs" t="Include" />
             <e p="EnemyBlink.cs" t="Include" />
+            <e p="EnemyKillZone.cs" t="Include" />
             <e p="PatrolAIController.cs" t="Include" />
             <e p="SpotPlayer.cs" t="Include" />
+            <e p="TriggerEnable.cs" t="Include" />
+            <e p="TriggerEnemy.cs" t="Include" />
           </e>
           <e p="HotSpot.cs" t="Include" />
           <e p="HotSpotSpawner.cs" t="Include" />

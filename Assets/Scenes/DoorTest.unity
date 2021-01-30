@@ -189,6 +189,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &385170457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385170459}
+  - component: {fileID: 385170458}
+  m_Layer: 0
+  m_Name: TestingObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &385170458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385170457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7036aed4683a564c8bafbcfbe88edc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testEvent: {fileID: 11400000, guid: c17d9824fd332a64e82592c11b4e0167, type: 2}
+--- !u!4 &385170459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385170457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -60.126755, y: 7.3339987, z: 5.471657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515382466
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +450,6 @@ GameObject:
   - component: {fileID: 1213754598}
   - component: {fileID: 1213754597}
   - component: {fileID: 1213754596}
-  - component: {fileID: 1213754600}
   - component: {fileID: 1213754599}
   m_Layer: 0
   m_Name: Main Camera
@@ -493,18 +536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 20
---- !u!114 &1213754600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213754595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0c14458cc7ecf34b8ce90b1c6da0949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &214816623583246630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -577,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 947616705627689377, guid: e7994e9458e078f4c9f31e23f400a7da, type: 3}
+      propertyPath: pickUpEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: c17d9824fd332a64e82592c11b4e0167, type: 2}
     - target: {fileID: 947616705627689389, guid: e7994e9458e078f4c9f31e23f400a7da, type: 3}
       propertyPath: m_RootOrder
       value: 5
