@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSController : MonoBehaviour {
-
+public class FPSController : MonoBehaviour
+{
+	public SharedVector3 playerPosition;
+	
 	public float mouseSensitivityX = 1.0f;
 	public float mouseSensitivityY = 1.0f;
 
@@ -56,6 +58,7 @@ public class FPSController : MonoBehaviour {
 			grounded = false;
 		}
 
+		playerPosition.Value = transform.position;
 		/* Lock/unlock mouse on click */
 		/*if (Input.GetMouseButtonUp (0)) {
 			if (!cursorVisible) {
