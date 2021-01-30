@@ -16,7 +16,7 @@ public class EnemyBlink : MonoBehaviour
     }
 
     private void Update()
-    {
+    {`
         if (DEBUG)
         {
             Debug.Log(renderer.isVisible);
