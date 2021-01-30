@@ -249,7 +249,9 @@
         <e p="PointLightExplosion.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
+            <e p="EnemyBlink.cs" t="Include" />
             <e p="PatrolAIController.cs" t="Include" />
+            <e p="SpotPlayer.cs" t="Include" />
           </e>
           <e p="MonologueSystem.cs" t="Include" />
           <e p="Player" t="Include">
