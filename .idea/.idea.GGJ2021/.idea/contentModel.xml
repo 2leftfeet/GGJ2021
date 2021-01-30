@@ -245,21 +245,22 @@
             </e>
           </e>
         </e>
-        <e p="HotSpot.cs" t="Include" />
-        <e p="PieceDatabase.cs" t="Include" />
-        <e p="PieceRandomiser.cs" t="Include" />
-        <e p="PointLightExplosion.cs" t="Include" />
+        <e p="HotSpotSpawner.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
             <e p="EnemyBlink.cs" t="Include" />
             <e p="PatrolAIController.cs" t="Include" />
             <e p="SpotPlayer.cs" t="Include" />
           </e>
+          <e p="HotSpot.cs" t="Include" />
           <e p="MonologueSystem.cs" t="Include" />
+          <e p="PieceDatabase.cs" t="Include" />
+          <e p="PieceRandomiser.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="FPSController.cs" t="Include" />
             <e p="HeadBobber.cs" t="Include" />
           </e>
+          <e p="PointLightExplosion.cs" t="Include" />
           <e p="Radio" t="Include">
             <e p="RadioController.cs" t="Include" />
             <e p="StationManager.cs" t="Include" />
@@ -270,6 +271,7 @@
             <e p="SharedInt.cs" t="Include" />
             <e p="SharedVector3.cs" t="Include" />
           </e>
+          <e p="TimelinePlayer.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
@@ -302,7 +304,6 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
-        <e p="TimelinePlayer.cs" t="Include" />
       </e>
       <e p="Aura2_Core.csproj" t="IncludeRecursive" />
       <e p="Aura2_Editor.csproj" t="IncludeRecursive" />
