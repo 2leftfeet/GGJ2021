@@ -245,12 +245,9 @@
             </e>
           </e>
         </e>
-        <e p="Door.cs" t="Include" />
-        <e p="DoorOpener.cs" t="Include" />
-        <e p="IInteractable.cs" t="Include" />
-        <e p="InteractableObject.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CameraFly.cs" t="Include" />
+          <e p="Door.cs" t="Include" />
           <e p="Enemy" t="Include">
             <e p="EnemyBlink.cs" t="Include" />
             <e p="PatrolAIController.cs" t="Include" />
@@ -258,6 +255,8 @@
           </e>
           <e p="HotSpot.cs" t="Include" />
           <e p="HotSpotSpawner.cs" t="Include" />
+          <e p="IInteractable.cs" t="Include" />
+          <e p="InteractableObject.cs" t="Include" />
           <e p="MonologueSystem.cs" t="Include" />
           <e p="PieceDatabase.cs" t="Include" />
           <e p="PieceRandomiser.cs" t="Include" />

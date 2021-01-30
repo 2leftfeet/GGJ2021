@@ -14,6 +14,8 @@ public class Door : MonoBehaviour, IInteractable
     public bool hovering = false;
 
     private Transform interactee;
+
+    private bool opening;
     private void Update()
     {
         
@@ -36,6 +38,7 @@ public class Door : MonoBehaviour, IInteractable
     }
     public void Interact(Transform interactee)
     {
+        if (opening) return;
         StartCoroutine(Fade());
         this.interactee = interactee;
     }
@@ -43,6 +46,8 @@ public class Door : MonoBehaviour, IInteractable
     public bool IsHovering() => hovering;
     private IEnumerator Fade()
     {
+        opening = true;
+        
         var obj = new GameObject();
         var canvas = obj.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
@@ -65,7 +70,8 @@ public class Door : MonoBehaviour, IInteractable
             image.color =  new Color(0f, 0f, 0f, i);
             yield return null;
         }
-        
+
+        opening = false;
         Destroy(obj);
     }
     
