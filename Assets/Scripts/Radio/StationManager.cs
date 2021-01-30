@@ -10,8 +10,7 @@ public class Station
 }
 public class StationManager : MonoBehaviour
 {
-    [HideInInspector]
-    public StationManager instance;
+    public static StationManager instance;
 
     [Range(0.0f, 1.0f)]
     public float globalNoiseModifier = 1.0f;
