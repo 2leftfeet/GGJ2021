@@ -11,13 +11,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [SerializeField] private Color startingColor;
     private float pingPongValue;
     [SerializeField] private bool shouldDestroyOnPickup = false;
+    [SerializeField] private SharedBool boolToCheck;
     public void Interact(Transform interactee)
     {
-        if(pickUpEvent != null) pickUpEvent.Value = true;
+        if (boolToCheck?.Value == false) return;
+        if (pickUpEvent != null) pickUpEvent.Value = true;
         if (shouldDestroyOnPickup) Destroy(this);
     }
     private void Update()
     {
+        if (boolToCheck?.Value == false) return;
+        
         var color = renderer.material.color;
         if (hovering)
         {

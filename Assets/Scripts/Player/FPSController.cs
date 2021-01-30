@@ -26,20 +26,18 @@ public class FPSController : MonoBehaviour
 	bool cursorVisible;
 	bool cameraMovementActive = true;
 
-	public float interactionDistance = 2f;
+	public float interactionDistance;
 	
 	// Use this for initialization
 	void Start () {
 		cameraT = Camera.main.transform;
 		rigidbodyR = GetComponent<Rigidbody> ();
 		LockMouse ();
-		
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
 		if(cameraMovementActive)
 		{
 			// rotation
