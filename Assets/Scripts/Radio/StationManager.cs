@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Station
+public class Station
 {
     public float frequency;
     public AudioSource audioSource;
@@ -49,5 +49,23 @@ public class StationManager : MonoBehaviour
     public void SetFrequencyToRandomStation()
     {
         currentFrequency = stations[Random.Range(0, stations.Count)].frequency + Random.Range(-0.5f, 0.5f) * stationDecay;
+    }
+
+     [ContextMenu("Scramble Frequencies")]
+    public void ScrambleFrequencies()
+    {
+        List<float> frequencies = new List<float>();
+
+        foreach(var station in stations)
+        {
+            frequencies.Add(station.frequency);
+        }
+
+        for(int i = 0; i < stations.Count; ++i)
+        {
+            int index = Random.Range(0, frequencies.Count);
+            stations[i].frequency = frequencies[index];
+            frequencies.RemoveAt(index);
+        }
     }
 }
