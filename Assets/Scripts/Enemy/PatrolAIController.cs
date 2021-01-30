@@ -8,7 +8,7 @@ public class PatrolAIController : MonoBehaviour
     [SerializeField] Transform[] Route;
     private int destPoint = 0;
     //private NavMeshAgent agent;
-    private bool paused = false;
+    [SerializeField] bool paused = false;
 
     NavMeshAgent agent;
 
@@ -20,8 +20,8 @@ public class PatrolAIController : MonoBehaviour
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
         //agent.autoBraking = false;
-
-        GotoNextPoint();
+        if(!paused)
+            GotoNextPoint();
 
     }
 
