@@ -1117,6 +1117,7 @@ GameObject:
   - component: {fileID: 591032619}
   - component: {fileID: 591032618}
   - component: {fileID: 591032617}
+  - component: {fileID: 591032620}
   m_Layer: 0
   m_Name: Unpause Enemy Trigger
   m_TagString: Untagged
@@ -1158,12 +1159,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591032616}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 40.22, y: 15.21, z: 44.11}
+  m_LocalPosition: {x: 45.77, y: 15.21, z: 40.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &591032620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591032616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21144756cfc44da46b5e3eb35dde7d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiggerOnce: 1
+  toEnable: {fileID: 1445299376}
 --- !u!1 &630174563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,6 +1802,14 @@ PrefabInstance:
     - target: {fileID: 1595801370, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706588078, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.542
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706588078, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.462
       objectReference: {fileID: 0}
     - target: {fileID: 1810942781, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
       propertyPath: m_IsActive
@@ -2886,6 +2909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
+--- !u!4 &798401495 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1706588078, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
+  m_PrefabInstance: {fileID: 798401494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &832072692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 832072692, guid: affe44592e8689745b0133e1b501ee5a, type: 3}
@@ -4087,7 +4115,7 @@ PrefabInstance:
     - target: {fileID: 58230150110329900, guid: 5528c5504c2e1344da260e886d66c23f, type: 3}
       propertyPath: Route.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 798401495}
     - target: {fileID: 58230150110329900, guid: 5528c5504c2e1344da260e886d66c23f, type: 3}
       propertyPath: Route.Array.data[1]
       value: 
@@ -4114,7 +4142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 523641856130258748, guid: 5528c5504c2e1344da260e886d66c23f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.09
+      value: 25.38
       objectReference: {fileID: 0}
     - target: {fileID: 523641856130258748, guid: 5528c5504c2e1344da260e886d66c23f, type: 3}
       propertyPath: m_LocalRotation.w
