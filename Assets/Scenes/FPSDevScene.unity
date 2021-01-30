@@ -1107,9 +1107,13 @@ MonoBehaviour:
   globalNoiseModifier: 1
   radioNoiseSource: {fileID: 803700709}
   stations:
-  - frequency: 50
+  - frequency: 80
     audioSource: {fileID: 76340399}
-  - frequency: 75
+  - frequency: 20
+    audioSource: {fileID: 144162727}
+  - frequency: 40
+    audioSource: {fileID: 144162727}
+  - frequency: 60
     audioSource: {fileID: 144162727}
   currentFrequency: 52.839493
   stationDecay: 10
