@@ -26,6 +26,7 @@ public class RadioController : MonoBehaviour
 
     FPSController controller;
     StationManager stationManager;
+    RadioPrompt radioPrompt;
 
     void Start()
     {
@@ -34,11 +35,12 @@ public class RadioController : MonoBehaviour
 
         controller = GetComponentInParent<FPSController>();
         stationManager = GetComponent<StationManager>();
+        radioPrompt = GetComponent<RadioPrompt>();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(!radioClicked && Input.GetKeyDown(KeyCode.Tab))
         {
             radioEnabled = !radioEnabled;
             radio.SetActive(radioEnabled);
@@ -66,9 +68,11 @@ public class RadioController : MonoBehaviour
             else if(hit.collider == radioSwitchCol)
             {
                 //Mouse over on switch
-                if(Input.GetMouseButtonDown(0))
+                if(Input.GetMouseButtonDown(0) && !radioClicked)
                 {
-                    radioClicked = !radioClicked;
+                    radioClicked = true;
+                    radioPrompt.EnablePrompt();
+                    controller.enabled = false;
                 }
             }
         }
@@ -81,5 +85,11 @@ public class RadioController : MonoBehaviour
         {
             radioSwitchCol.transform.localRotation = Quaternion.Lerp(radioSwitchCol.transform.localRotation, unclickedRotation, Time.deltaTime * 2.0f);
         }
+    }
+
+    public void ResetClicker()
+    {
+        radioClicked = false;
+        controller.enabled = true;
     }
 }
