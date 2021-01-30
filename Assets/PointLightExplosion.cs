@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PointLightExplosion : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    //float randomTimer = Random.Range(6f, 10f);
+
+    private void Start()
     {
-        
+        InvokeRepeating("TriggerExplosion", 2.0f, 10f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void TriggerExplosion()
     {
-        
+        GetComponent<Animator>().SetTrigger("Boom");
     }
 }
