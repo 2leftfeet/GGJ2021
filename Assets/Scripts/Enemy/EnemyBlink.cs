@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class EnemyBlink : MonoBehaviour
 {
-    bool DEBUG = false;
+    [SerializeField] bool DEBUG = false;
     bool isVisible = true;
     [SerializeField] GameObject enemy;
-    Renderer renderer;
+    SkinnedMeshRenderer renderer;
+    bool alreadySeen = false;
 
 
     private void Start()
     {
-        renderer = enemy.GetComponent<MeshRenderer>();
+        renderer = enemy.GetComponent<SkinnedMeshRenderer>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
+
         if (DEBUG)
         {
             Debug.Log(renderer.isVisible);
         }
 
-        if (!renderer.isVisible)
+        if (!renderer.isVisible && alreadySeen)
         {
             enemy.SetActive(false);
         }
@@ -34,6 +36,12 @@ public class EnemyBlink : MonoBehaviour
                 enemy.SetActive(true);
             }
         }
+
+        if (renderer.isVisible)
+        {
+            alreadySeen = true;
+        }
+
     }
 
 }
