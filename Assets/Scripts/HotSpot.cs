@@ -16,6 +16,7 @@ public class HotSpot : MonoBehaviour
 
     private void Start()
     {
+        StationManager.instance.ScrambleFrequencies();
         playerPosition.valueChangeEvent.AddListener(UpdateSound);
     }
 
