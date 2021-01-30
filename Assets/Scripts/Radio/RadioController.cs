@@ -8,6 +8,7 @@ public class RadioController : MonoBehaviour
     public LayerMask handsLayerMask = default;
 
     public GameObject radio;
+    public GameObject journal;
 
     public Camera handCamera;
     public Collider radioDialCol;
@@ -28,6 +29,13 @@ public class RadioController : MonoBehaviour
     StationManager stationManager;
     RadioPrompt radioPrompt;
 
+    Vector3 radioStartPos = new Vector3(0.82f, -0.4f, 0.22f);
+    Vector3 radioEndPos = new Vector3(0.7f, -0.19f, 1.2f);
+
+    Vector3 journalStartPos = new Vector3(-0.5f, -0.5f, 0.2f);
+    Vector3 journalEndPos = new Vector3(-0.2f, -0.14f, 0.8f);
+    
+
     void Start()
     {
         unclickedRotation = radioSwitchCol.transform.localRotation;
@@ -43,14 +51,23 @@ public class RadioController : MonoBehaviour
         if(!radioClicked && Input.GetKeyDown(KeyCode.Tab))
         {
             radioEnabled = !radioEnabled;
-            radio.SetActive(radioEnabled);
+            //radio.SetActive(radioEnabled);
 
             //if radio enabled, camera movement disabled and vice versa
             controller.SetCameraMovement(!radioEnabled);
             stationManager.SetRadioBackpacked(!radioEnabled);
         }
 
-        if(!radioEnabled) return;
+        if(radioEnabled)
+        {
+            radio.transform.localPosition = Vector3.Lerp(radio.transform.localPosition, radioEndPos, 2f * Time.deltaTime);
+            journal.transform.localPosition = Vector3.Lerp(journal.transform.localPosition, journalEndPos, 2f * Time.deltaTime);
+        }
+        else
+        {
+            radio.transform.localPosition = Vector3.Lerp(radio.transform.localPosition, radioStartPos, 2f * Time.deltaTime);
+            journal.transform.localPosition = Vector3.Lerp(journal.transform.localPosition, journalStartPos, 2f * Time.deltaTime);
+        }
 
         Ray ray = handCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
