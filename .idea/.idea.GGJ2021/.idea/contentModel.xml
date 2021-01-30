@@ -245,14 +245,19 @@
             </e>
           </e>
         </e>
-        <e p="HotSpotSpawner.cs" t="Include" />
+        <e p="Door.cs" t="Include" />
+        <e p="DoorOpener.cs" t="Include" />
+        <e p="IInteractable.cs" t="Include" />
+        <e p="InteractableObject.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="CameraFly.cs" t="Include" />
           <e p="Enemy" t="Include">
             <e p="EnemyBlink.cs" t="Include" />
             <e p="PatrolAIController.cs" t="Include" />
             <e p="SpotPlayer.cs" t="Include" />
           </e>
           <e p="HotSpot.cs" t="Include" />
+          <e p="HotSpotSpawner.cs" t="Include" />
           <e p="MonologueSystem.cs" t="Include" />
           <e p="PieceDatabase.cs" t="Include" />
           <e p="PieceRandomiser.cs" t="Include" />
@@ -263,6 +268,7 @@
           <e p="PointLightExplosion.cs" t="Include" />
           <e p="Radio" t="Include">
             <e p="RadioController.cs" t="Include" />
+            <e p="RadioPrompt.cs" t="Include" />
             <e p="StationManager.cs" t="Include" />
           </e>
           <e p="SharedVariables" t="Include">
@@ -272,6 +278,10 @@
             <e p="SharedVector3.cs" t="Include" />
           </e>
           <e p="TimelinePlayer.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="LateStandard.shader" t="Include" />
+          <e p="ZWrite.shader" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

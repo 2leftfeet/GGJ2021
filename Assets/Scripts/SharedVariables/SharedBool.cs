@@ -6,7 +6,8 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class SharedBool : ScriptableObject
 {
-    private bool _value;
+    [Header("Set only for debug purposes")]
+    public bool _value;
     public bool Value
     {
         get => _value;

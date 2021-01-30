@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,15 +26,20 @@ public class FPSController : MonoBehaviour
 	bool cursorVisible;
 	bool cameraMovementActive = true;
 
+	public float interactionDistance = 2f;
+	
 	// Use this for initialization
 	void Start () {
 		cameraT = Camera.main.transform;
 		rigidbodyR = GetComponent<Rigidbody> ();
 		LockMouse ();
+		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+
 		if(cameraMovementActive)
 		{
 			// rotation
@@ -50,6 +56,8 @@ public class FPSController : MonoBehaviour
 
 		Ray ray = new Ray (transform.position, -transform.up);
 		RaycastHit hit;
+		
+	
 
 		if (Physics.Raycast(ray, out hit, 1 + .1f, groundedMask)) {
 			grounded = true;
@@ -58,6 +66,8 @@ public class FPSController : MonoBehaviour
 			grounded = false;
 		}
 
+		
+		
 		playerPosition.Value = transform.position;
 		/* Lock/unlock mouse on click */
 		/*if (Input.GetMouseButtonUp (0)) {
@@ -67,6 +77,33 @@ public class FPSController : MonoBehaviour
 				LockMouse ();
 			}
 		}*/
+	}
+
+	private void LateUpdate()
+	{
+		Ray interactionRay = new Ray (transform.position, transform.forward);
+		RaycastHit hit;
+		
+		if(Physics.Raycast(interactionRay, out hit, interactionDistance ))
+		{
+			if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+			{
+				var interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+				interactable.Hover();
+			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			if(Physics.Raycast(interactionRay, out hit, interactionDistance ))
+			{
+				if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+				{
+					var interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+					interactable.Interact(transform);
+				} //Check other interactables here
+			}
+		}
 	}
 
 	void FixedUpdate() {

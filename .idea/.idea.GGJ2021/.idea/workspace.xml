@@ -10,19 +10,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedVector3.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/HotSpotSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraFly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/InteractableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Door.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedInt1.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedVector3.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/FPSController.cs" />
       <option value="$PROJECT_DIR$/Assets/HotSpot.cs" />
       <option value="$PROJECT_DIR$/Assets/PieceDatabase.cs" />
       <option value="$PROJECT_DIR$/Assets/PieceRandomiser.cs" />
       <option value="$PROJECT_DIR$/Assets/HotSpotSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/IInteractable.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/FPSController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Door.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraFly.cs" />
+      <option value="$PROJECT_DIR$/Assets/InteractableObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SharedVariables/SharedBool.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nmq1M2WJAIrpsHefuJRV1hHIh1" />
