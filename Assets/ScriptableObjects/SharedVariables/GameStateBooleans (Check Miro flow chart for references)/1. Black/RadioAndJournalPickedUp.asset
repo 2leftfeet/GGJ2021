@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7603ecf9a37de5c42b9d3a6206430dac, type: 3}
   m_Name: RadioAndJournalPickedUp
   m_EditorClassIdentifier: 
+  _value: 0
   valueChangeEvent:
     m_PersistentCalls:
       m_Calls: []
