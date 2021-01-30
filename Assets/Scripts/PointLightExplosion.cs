@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class PointLightExplosion : MonoBehaviour
 {
+    [SerializeField] float startTime;
+    [SerializeField] float timer;
 
-    //float randomTimer = Random.Range(6f, 10f);
+    public bool isRandomised = true;
 
     private void Start()
     {
-        InvokeRepeating("TriggerExplosion", 2.0f, 10f);
+        RandomiseTimers();
+        InvokeRepeating("TriggerExplosion", startTime, timer);
     }
 
     void TriggerExplosion()
     {
+        RandomiseTimers();
         GetComponent<Animator>().SetTrigger("Boom");
+    }
+
+    void RandomiseTimers()
+    {
+        if (isRandomised)
+        {
+            startTime = Random.Range(1.0f, 5.0f);
+            timer = Random.Range(6f, 10f);
+        }
     }
 }
