@@ -10,14 +10,21 @@ public class Station
 }
 public class StationManager : MonoBehaviour
 {
+    [HideInInspector]
     public StationManager instance;
+
+    [Range(0.0f, 1.0f)]
     public float globalNoiseModifier = 1.0f;
+    public float backpackNoiseModifier = 0.3f;
     public AudioSource radioNoiseSource;
     public List<Station> stations = new List<Station>();
 
     [Range(0,100)]
     public float currentFrequency;
     public float stationDecay;
+
+
+    bool backpacked = true;
 
     void Awake()
     {
@@ -28,6 +35,7 @@ public class StationManager : MonoBehaviour
     void Update()
     {
         float minDistance = float.MaxValue;
+        float noiseModifier = backpacked ? backpackNoiseModifier * globalNoiseModifier : globalNoiseModifier;
 
         foreach(var station in stations)
         {
@@ -36,13 +44,13 @@ public class StationManager : MonoBehaviour
             frequencyDistance = frequencyDistance > stationDecay ? stationDecay : frequencyDistance;
 
             float reduction = frequencyDistance/stationDecay;
-            station.audioSource.volume = (1.0f - reduction * reduction) * globalNoiseModifier;
+            station.audioSource.volume = (1.0f - reduction * reduction) * noiseModifier;
 
             if(minDistance > reduction)
                 minDistance = reduction;
         }
 
-        radioNoiseSource.volume = (minDistance * minDistance) * globalNoiseModifier;
+        radioNoiseSource.volume = (minDistance * minDistance) * noiseModifier;
     }
 
     [ContextMenu("Set Frequency To Random Station")]
@@ -67,5 +75,28 @@ public class StationManager : MonoBehaviour
             stations[i].frequency = frequencies[index];
             frequencies.RemoveAt(index);
         }
+    }
+
+    public void SetRadioBackpacked(bool value)
+    {
+        backpacked = value;
+    }
+
+    public float ChangeFrequency(float delta)
+    {
+        currentFrequency += delta;
+        if(currentFrequency < 0.0f)
+        {
+            float change = currentFrequency - delta;
+            currentFrequency = 0.0f;
+            return change;
+        }
+        else if(currentFrequency > 100.0f)
+        {
+            float change = delta - (currentFrequency - 100.0f);
+            currentFrequency = 100.0f;
+            return change;
+        }
+        return delta;
     }
 }

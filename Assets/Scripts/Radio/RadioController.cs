@@ -13,7 +13,7 @@ public class RadioController : MonoBehaviour
     public Collider radioDialCol;
     public Collider radioSwitchCol;
 
-    public float scrollSpeed = 5.0f;
+    public float frequencyChangeSpeed = 1.0f;
     public float clickAngleDelta = 7.0f;
 
     bool radioEnabled = false;
@@ -24,10 +24,16 @@ public class RadioController : MonoBehaviour
     Quaternion clickedRotation;
     Quaternion unclickedRotation;
 
+    FPSController controller;
+    StationManager stationManager;
+
     void Start()
     {
         unclickedRotation = radioSwitchCol.transform.localRotation;
         clickedRotation = Quaternion.Euler(unclickedRotation.eulerAngles.x, unclickedRotation.eulerAngles.y + clickAngleDelta, unclickedRotation.eulerAngles.z);
+
+        controller = GetComponentInParent<FPSController>();
+        stationManager = GetComponent<StationManager>();
     }
 
     void Update()
@@ -36,18 +42,26 @@ public class RadioController : MonoBehaviour
         {
             radioEnabled = !radioEnabled;
             radio.SetActive(radioEnabled);
+
+            //if radio enabled, camera movement disabled and vice versa
+            controller.SetCameraMovement(!radioEnabled);
+            stationManager.SetRadioBackpacked(!radioEnabled);
         }
 
         if(!radioEnabled) return;
 
         Ray ray = handCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if(Physics.Raycast(ray, out hit, 50f, handsLayerMask))
         {
             if(hit.collider == radioDialCol)
             {
                 //Mouse over on dial
-                radioDialCol.transform.Rotate(Vector3.forward * Input.mouseScrollDelta.y * scrollSpeed);
+                if(Mathf.Abs(Input.mouseScrollDelta.y) > 0.0f)
+                {
+                    var frequencyChangedBy = stationManager.ChangeFrequency(Input.mouseScrollDelta.y * frequencyChangeSpeed);
+                    radioDialCol.transform.Rotate(Vector3.forward * (-frequencyChangedBy) * 3.0f);
+                }
             }
             else if(hit.collider == radioSwitchCol)
             {
@@ -61,11 +75,11 @@ public class RadioController : MonoBehaviour
 
         if(radioClicked)
         {
-            radioSwitchCol.transform.localRotation = Quaternion.Lerp(radioSwitchCol.transform.localRotation, clickedRotation, Time.deltaTime);
+            radioSwitchCol.transform.localRotation = Quaternion.Lerp(radioSwitchCol.transform.localRotation, clickedRotation, Time.deltaTime * 2.0f);
         }
         else
         {
-            radioSwitchCol.transform.localRotation = Quaternion.Lerp(radioSwitchCol.transform.localRotation, unclickedRotation, Time.deltaTime);
+            radioSwitchCol.transform.localRotation = Quaternion.Lerp(radioSwitchCol.transform.localRotation, unclickedRotation, Time.deltaTime * 2.0f);
         }
     }
 }
