@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriggerEnable : MonoBehaviour
 {
     [SerializeField] bool tiggerOnce = true;
-    [SerializeField] GameObject toEnable;
+    [SerializeField] MonoBehaviour toEnable;
     bool triggered = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -13,12 +13,12 @@ public class TriggerEnable : MonoBehaviour
         {
             if (tiggerOnce && !triggered)
             {
-                toEnable.SetActive(true);
+                toEnable.enabled = true;
                 triggered = true;
             }
             else
             {
-                toEnable.SetActive(true);
+                toEnable.enabled = true;
             }
         }
     }
