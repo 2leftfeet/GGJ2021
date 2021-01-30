@@ -19,8 +19,7 @@ public class HeadBobber : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(body.velocity);
-        if(body.velocity.sqrMagnitude > 0.01f)
+        if(body.velocity.sqrMagnitude > 0.01f && body.velocity.y < 0.01f)
         {
             timer += Time.deltaTime * bobbingFrequency;
             transform.localPosition = new Vector3(transform.localPosition.x, defaultY + Mathf.Sin(timer) * bobbingAmount, transform.localPosition.z);

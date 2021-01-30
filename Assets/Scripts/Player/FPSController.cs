@@ -42,13 +42,6 @@ public class FPSController : MonoBehaviour {
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
 		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
-		// jump
-		if (Input.GetButtonDown ("Jump")) {
-			if (grounded) {
-				rigidbodyR.AddForce (transform.up * jumpForce);
-			}
-		}
-
 		Ray ray = new Ray (transform.position, -transform.up);
 		RaycastHit hit;
 
