@@ -258,6 +258,8 @@
             <e p="TriggerEnable.cs" t="Include" />
             <e p="TriggerEnemy.cs" t="Include" />
           </e>
+          <e p="GhostLerp.cs" t="Include" />
+          <e p="GhostTrigger.cs" t="Include" />
           <e p="HotSpot.cs" t="Include" />
           <e p="HotSpotSpawner.cs" t="Include" />
           <e p="IInteractable.cs" t="Include" />

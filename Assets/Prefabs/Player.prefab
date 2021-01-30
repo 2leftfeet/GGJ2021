@@ -1768,7 +1768,7 @@ MonoBehaviour:
   groundedMask:
     serializedVersion: 2
     m_Bits: 64
-  interactionDistance: 50
+  interactionDistance: 35
 --- !u!54 &2881540197399985355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ GameObject:
   - component: {fileID: 2881540197581572179}
   - component: {fileID: 2881540197581572180}
   - component: {fileID: 2881540197581572181}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
