@@ -246,6 +246,8 @@
           </e>
         </e>
         <e p="HotSpot.cs" t="Include" />
+        <e p="PieceDatabase.cs" t="Include" />
+        <e p="PieceRandomiser.cs" t="Include" />
         <e p="PointLightExplosion.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
