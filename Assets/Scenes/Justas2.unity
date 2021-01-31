@@ -2071,6 +2071,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 28431000}
+    - target: {fileID: 926789084, guid: 8d85e4cb8b060bb4ebfd0fe29f923b22, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 563c1962e42f47d4999cecb844877080, type: 3}
     - target: {fileID: 2881540197399985345, guid: 8d85e4cb8b060bb4ebfd0fe29f923b22, type: 3}
       propertyPath: m_Name
       value: Player
